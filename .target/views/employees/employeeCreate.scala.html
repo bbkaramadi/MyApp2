@@ -1,0 +1,44 @@
+@(employeeForm: Form[models.Employee])
+
+@import helper._
+@import helper.twitterBootstrap._
+
+@main(Html("Account created!")) {
+<div class="container">
+  <div class="well">
+	@helper.form(action=routes.Employee.submit()){
+	
+	
+		<fieldset>
+		<legend>Enter Employee Details</legend>
+		
+		@inputText(
+			employeeForm("employeeName"),
+			'_label -> "Employee Name",
+			'_help ->"Please Choose valid Name."
+			
+		)
+		
+		@inputText(
+			employeeForm("salary"), '_label -> "Salary",
+			'_help ->"Enter a valid Salary"
+			
+		)
+		
+		@inputText(
+			employeeForm("department"), '_label -> "Department",
+			'_help ->"Enter correct Department"
+		)
+		
+		
+		</fieldset>
+		<div>
+			<input type="submit" value="Insert" class="btn primary">
+			<a href="@routes.Application.index" class="btn">Cancel</a>
+			
+		</div>
+		
+	}
+	</div>
+	</div>
+}

@@ -1,0 +1,31 @@
+@(employee: models.Employee) @main(Html("Account created!"), nav =
+"createEmployee") {
+<div class="container">
+	<div class="well">
+		<h1>Employee Inserted with following details</h1>
+		
+		<table border="0">
+			<tr>
+
+				<td>ID</td>
+				<td>@employee.empId</td>
+			</tr>
+			<tr>
+				<td>Name</td>
+				<td>@employee.employeeName</td>
+			</tr>
+			<tr>
+				<td>Salary</td>
+				<td>@employee.salary</td>
+			</tr>
+			<tr>
+				<td>Department</td>
+				<td>@employee.department</td>
+			</tr>
+		</table>
+		<h4>
+			<a href="@routes.Application.index">&lt Home</a>
+		</h4>
+	</div>
+</div>
+}

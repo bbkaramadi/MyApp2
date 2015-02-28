@@ -1,0 +1,52 @@
+@(primaryKey: String, employeeForm: Form[models.Employee])
+
+@import helper._
+@import helper.twitterBootstrap._
+
+@main(Html("Account created!")) {
+<div class="container">
+  <div class="well">
+	@helper.form(action=routes.Employee.update(primaryKey)){
+		<fieldset>
+		<legend>Update or Delete this Employee</legend>
+		
+		@inputText(
+			employeeForm("empId"),
+			'_label -> "EmployeeId",
+			'readonly -> "yes"
+			
+		)
+		
+		
+		@inputText(
+			employeeForm("employeeName"),
+			'_label -> "Employeename",
+			'_help ->"Please Choose valid Name."
+			
+		)
+		
+		@inputText(
+			employeeForm("salary"), '_label -> "Salary",
+			'_help ->"Enter a valid Salary"
+			
+		)
+		
+		@inputText(
+			employeeForm("department"), '_label -> "Department",
+			'_help ->"Enter correct Department"
+		)
+		
+		
+		</fieldset>
+		<div class="control-group">
+        <div class="controls">    
+         <!--  <a id="delete" href="@routes.Employee.update(primaryKey)" class="btn primary">Update</a> --> 
+         <input id="update" type="submit" value="Update" class="btn primary">
+          <a id="delete" href="@routes.Employee.delete(primaryKey)" class="btn danger">Delete</a>  
+          <a id="cancel" href="@routes.ShowAll.getEmployees()" class="btn">Cancel</a> 
+        </div>
+      </div>
+	}
+	</div>
+	</div>
+}

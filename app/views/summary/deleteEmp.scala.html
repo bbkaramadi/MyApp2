@@ -1,0 +1,12 @@
+@(employeeDeleted: models.Employee)
+
+@main(Html("Account created!"), nav = "createEmployee") {
+<div class="container">
+	<div class="well">
+<h3>@employeeDeleted.employeeName has been deleted</h3>
+<h4>
+<a href="@routes.Application.index">&lt Home</a></h4>
+</div>
+</div>
+
+}

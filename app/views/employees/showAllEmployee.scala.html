@@ -1,0 +1,25 @@
+ @(employees: java.util.List[models.Employee])
+
+@main(Html("Account created!"), nav = "employees"){
+<link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/main.css")">
+<div class="container">
+  <div class="well">
+<h2><legend>Employee list</legend></h2>
+	
+<legend>@if(employees.size()==0){
+	No Employees to display
+}</legend>
+	<ul class="employeelist">
+	@for(employee<- employees){
+	<a href="/employees/@employee.empId">
+	<li class="artist cf">
+	<div class="info">
+	<h4>@employee.employeeName</h4>
+	<h5>@employee.empId</h5>
+	</div>
+	</li></a>
+}
+	</ul>
+</div>
+</div>
+}  
